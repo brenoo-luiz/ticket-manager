@@ -1,5 +1,10 @@
 import Navbar from "../Navbar/Navbar.jsx";
 
+/**
+ * children:
+ * - Everything you place inside <Layout>...</Layout> (in App.jsx)
+ * - This is where the route pages are rendered
+ */
 export default function Layout({ children }) {
     return (
     <>

@@ -1,4 +1,5 @@
 export default function TicketTable({ tickets, onDelete }) {
+    // If there are no tickets, it shows an empty state
     if (!tickets?.length) {
     return <p>No tickets yet.</p>;
     }

@@ -1,3 +1,11 @@
+/*
+    global.css
+    Global styles + reusable classes.
+    It defines:
+    - CSS variables (theme colors)
+    - Base styles (body, tipografia)
+    - “Components” via classes: navbar, card, button, form, table, etc.
+*/
 :root {
     color-scheme: light;    
     --bg: #f6f7fb;

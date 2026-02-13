@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+/**
+ * Initial state pf the form.
+ */
 const initial = {
     firstName: "",
     lastName: "",
@@ -9,10 +12,17 @@ const initial = {
 };
 
 export default function TicketForm({ onSubmit }) {
+    // Current values types into the form
     const [form, setForm] = useState(initial);
+    // Error messages per field
     const [errors, setErrors] = useState({});
+    // Success message
     const [success, setSuccess] = useState("");
 
+    /**
+   * updateField(key, value)
+   * - when the user start correcting a field, we remove the error for that field
+   */
     function updateField(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -26,6 +36,13 @@ export default function TicketForm({ onSubmit }) {
     setSuccess("");
     }
 
+    /**
+   * handleSubmit(e)
+   * - prevents page reload (e.preventDefault)
+   * - calls onSubmit (form)
+   * - if it fails: show errors
+   * - if it succeeds: clears the form and shows a success message
+   */
     function handleSubmit(e) {
     e.preventDefault();
     setSuccess("");
@@ -109,7 +126,7 @@ export default function TicketForm({ onSubmit }) {
             <small className="helpError">{errors.description}</small>
         )}
         </div>
-
+        {/* General error (not related to a specific field) */}
         {errors.general && (
         <div className="helpError">{errors.general}</div>
         )}

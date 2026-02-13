@@ -1,7 +1,24 @@
+/**
+ * isNonEmptyString(value)
+ * Retorns true if:
+ * - value is a string
+ * - after trim() (removing espaces at the beginning and end) there is still text remaining
+ */
 export function isNonEmptyString(value) {
     return typeof value === "string" && value.trim().length > 0;
 }
 
+
+/**
+ * isValidEmail(email)
+ * 
+ * Flow:
+ * 1) ensures it is a non-empty string
+ * 2) uses a simple regex: “algo@algo.algo”
+ *
+ * Obs:
+ * - It is not 100% RFC compliant (that would be much more complex),
+ */
 export function isValidEmail(email) {
     if (!isNonEmptyString(email)) return false;
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());

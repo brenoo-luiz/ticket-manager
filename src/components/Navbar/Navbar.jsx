@@ -1,11 +1,20 @@
 import { NavLink } from "react-router-dom";
 
+/**
+ * Navbar
+ * Top section with navigation links.
+ *
+ * NavLink:
+ * - Changes the route without reloading the page
+ * - Indicates if it is active (IsActive) to apply a different class
+ */
 export default function Navbar() {
     return (
     <header className="navbar">
         <nav className="navInner">
         <strong className="brand">Support Tickets</strong>
 
+        {/* Route link to "/new" */}
         <div className="navLinks">
             <NavLink
             to="/new"
@@ -18,6 +27,7 @@ export default function Navbar() {
             Form
             </NavLink>
 
+            {/* Route link to "/tickets" */}
             <NavLink
             to="/tickets"
             className={({ isActive }) =>
