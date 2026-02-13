@@ -5,7 +5,7 @@
 Frontend application developed with **React** for managing support tickets.
 
 Repository:  
-https://github.com/brenoo-luiz/support-tickets
+https://github.com/brenoo-luiz/ticket-manager
 
 </div>
 
@@ -134,7 +134,7 @@ Routing is centralized in `src/routes/index.jsx`.
 Structured following separation of concerns:
 
 ```
-📦 support-tickets/
+📦 ticket-manager/
 ├── docs/
 │   └── rabisco.jpeg
 ├── public/
@@ -234,13 +234,13 @@ Keeping the form component clean and organized.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/brenoo-luiz/support-tickets
+git clone https://github.com/brenoo-luiz/ticket-manager
 ```
 
 ### 2. Navigate to the project folder
 
 ```bash
-cd support-tickets
+cd ticket-manager
 ```
 
 ### 3. Install dependencies
