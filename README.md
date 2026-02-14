@@ -1,15 +1,8 @@
-<div align="center">
-
 # Support Tickets
 
-Frontend application developed with **React** for managing support tickets.
+A simple support ticket manager built with React.
 
-Repository:  
-https://github.com/brenoo-luiz/ticket-manager
-
-</div>
-
----
+Designed with focus on modular architecture and separation of concerns.
 
 ## Introduction
 
@@ -23,18 +16,16 @@ The application allows users to:
 - Clear all stored tickets
 - Navigate between pages using routing
 
-Even though this is a simple project, the intention was not only to make it work, but to structure it in an organized and scalable way from the beginning.
+Even though this is a simple project, the intention was to structure it in a scalable way from the beginning.
 
 Before starting the implementation, I reflected on some important architectural decisions:
 
 - Where should the state live?
 - How can I avoid mixing business logic with the interface?
 - How can I keep tickets even after refreshing the page?
-- How can I structure the project in a modular and scalable way?
+- How can I structure the project in a modular way?
 
 To organize these ideas, I created a sketch before starting the implementation.
-
----
 
 ## Thought Process
 
@@ -52,11 +43,9 @@ In this planning phase, I defined:
 - Validation logic isolated from the form component
 - A clear flow between creation → state update → persistence → listing
 
-After this initial mapping, the implementation became more structured and maintainable.
+After this initial mapping, the implementation became more maintainable.
 
 The architecture was organized in a modular way, separating responsibilities into **pages, components, hooks, services, and utils**.
-
----
 
 ## Implemented Features
 
@@ -79,9 +68,7 @@ On submission:
 - The ticket is saved in LocalStorage
 - A success message is displayed
 
-Validation was separated from the component to keep the code clean and organized.
-
----
+Validation was separated from the component.
 
 ### 2. Ticket Listing
 
@@ -102,8 +89,6 @@ The table displays:
 - Created (date and time)
 - Actions (Delete)
 
----
-
 ### 3. Navigation
 
 Page navigation implemented using **React Router DOM**.
@@ -116,8 +101,6 @@ Defined routes:
 
 Routing is centralized in `src/routes/index.jsx`.
 
----
-
 ## Technologies Used
 
 - React 19
@@ -127,67 +110,13 @@ Routing is centralized in `src/routes/index.jsx`.
 - ESLint
 - CSS
 
----
-
-## Project Architecture
-
-Structured following separation of concerns:
-
-```
-📦 ticket-manager/
-├── docs/
-│   └── rabisco.jpeg
-├── public/
-│   └── vite.svg
-├── src/
-│   ├── components/
-│   │   ├── Layout/
-│   │   │   └── Layout.jsx
-│   │   ├── Navbar/
-│   │   │   └── Navbar.jsx
-│   │   ├── TicketForm/
-│   │   │   └── TicketForm.jsx
-│   │   └── TicketTable/
-│   │       └── TicketTable.jsx
-│   ├── hooks/
-│   │   └── useTickets.js
-│   ├── pages/
-│   │   ├── NewTicket/
-│   │   │   └── NewTicket.page.jsx
-│   │   └── TicketList/
-│   │       └── TicketList.page.jsx
-│   ├── routes/
-│   │   └── index.jsx
-│   ├── services/
-│   │   └── ticketsStorage.js
-│   ├── styles/
-│   │   └── global.css
-│   ├── utils/
-│   │   └── validators.js
-│   ├── App.jsx
-│   └── main.jsx
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
-└── README.md
-```
-
----
-
 ## Technical Decisions
 
 ### Routing
 
-- `/` → Redirects to `/new`
-- `/new` → Ticket creation
-- `/tickets` → Ticket list
+Routing is centralized in `src/routes/index.jsx` using **React Router DOM**.
 
-Routing is centralized in `src/routes/index.jsx`.
-
----
+Centralizing route definitions improves scalability and prevents routing configuration from being scattered across components.
 
 ### Custom Hook — useTickets
 
@@ -199,9 +128,7 @@ The ticket management logic was isolated into a custom hook responsible for:
 - Retrieving the list
 - Integrating with the storage service
 
-This keeps components focused only on the interface.
-
----
+This keeps components focused on rendering.
 
 ### Persistence
 
@@ -215,8 +142,6 @@ Data remains available even after refreshing the page.
 
 If it becomes necessary to replace LocalStorage with an API in the future, only this layer will need to be modified.
 
----
-
 ### Validation
 
 Validation rules are isolated in:
@@ -224,10 +149,6 @@ Validation rules are isolated in:
 ```
 src/utils/validators.js
 ```
-
-Keeping the form component clean and organized.
-
----
 
 ## Installation and Usage
 
@@ -262,37 +183,3 @@ http://localhost:5173
 ```
 
 Open this address in your browser.
-
----
-
-## Usage Flow
-
-### Creating a new ticket
-
-1. Access `/new`
-2. Fill in the fields:
-   - First Name
-   - Last Name
-   - Company
-   - E-mail
-   - Description
-3. Click **Submit**
-
-- If any field is empty, submission will be blocked.
-- If everything is valid, the ticket will be created and persisted.
-
----
-
-### Viewing tickets
-
-1. Access `/tickets`
-2. The table will display:
-   - First Name
-   - Last Name
-   - Company
-   - E-mail
-   - Description
-   - Created
-   - Delete action
-
-All tickets are stored in the browser’s LocalStorage.
