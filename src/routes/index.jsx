@@ -2,12 +2,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NewTicketPage from "../pages/NewTicket/NewTicket.page.jsx";
 import TicketListPage from "../pages/TicketList/TicketList.page.jsx";
 
-/**
- * Defines the application's route "map".
- *
- * - <Routes> works like a switch
- * - <Navigate> performs redirection
- */
 export default function AppRoutes() {
     return (
     <Routes>

@@ -1,14 +1,6 @@
 import TicketTable from "../../components/TicketTable/TicketTable";
 import { useTickets } from "../../hooks/useTickets";
 
-/**
- * Page /tickets
- *
- * Responsability:
- * - Display the list of tickets
- * - Allow deleting a ticket
- * - Allow clearing all tickets
- */
 export default function TicketListPage() {
     const { tickets, clearTickets, removeTicket } = useTickets();
 

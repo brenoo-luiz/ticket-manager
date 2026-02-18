@@ -1,13 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-/**
- * Navbar
- * Top section with navigation links.
- *
- * NavLink:
- * - Changes the route without reloading the page
- * - Indicates if it is active (IsActive) to apply a different class
- */
 export default function Navbar() {
     return (
     <header className="navbar">

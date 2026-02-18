@@ -12,17 +12,10 @@ const initial = {
 };
 
 export default function TicketForm({ onSubmit }) {
-    // Current values types into the form
     const [form, setForm] = useState(initial);
-    // Error messages per field
     const [errors, setErrors] = useState({});
-    // Success message
     const [success, setSuccess] = useState("");
 
-    /**
-   * updateField(key, value)
-   * - when the user start correcting a field, we remove the error for that field
-   */
     function updateField(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }));
 
@@ -36,13 +29,6 @@ export default function TicketForm({ onSubmit }) {
     setSuccess("");
     }
 
-    /**
-   * handleSubmit(e)
-   * - prevents page reload (e.preventDefault)
-   * - calls onSubmit (form)
-   * - if it fails: show errors
-   * - if it succeeds: clears the form and shows a success message
-   */
     function handleSubmit(e) {
     e.preventDefault();
     setSuccess("");

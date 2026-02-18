@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import { loadTickets, saveTickets } from "../services/ticketsStorage";
 import { validateTicketInput } from "../utils/validators";
 
-/**
- * createId()
- * Generate an identifier:
- * - Date.now() provides a time-based number (ms)
- * - Math.random() add randomness to reduce collision
- */
 function createId() {
     return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
@@ -15,18 +9,10 @@ function createId() {
 export function useTickets() {
     const [tickets, setTickets] = useState(() => loadTickets());
 
-    /**
-   * Automatic persistence:
-   * Whenever "tickets" chances, it saves to localStorage.
-   */
     useEffect(() => {
     saveTickets(tickets);
     }, [tickets]);
 
-    /**
-   * addTicket(input)
-   * Creates a new ticket if the input is valid.
-   */
     function addTicket(input) {
     const { ok, errors } = validateTicketInput(input);
     if (!ok) return { ok, errors };
